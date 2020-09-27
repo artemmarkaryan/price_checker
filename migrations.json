@@ -1,0 +1,10 @@
+{
+  "prerun": "# some code here",
+  "directory": "migrations",
+  "history": "migratehistory",
+  "models": [
+    "db_interface.models.User",
+    "db_interface.models.Site",
+    "db_interface.models.Check"
+  ]
+}
