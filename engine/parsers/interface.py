@@ -1,9 +1,13 @@
 from db_interface.models import *
+import logging
+
+logging.basicConfig()
 
 
 class ParserInterface:
     site_name: str = ''
-    site_instance: Site = Site.get(Site.name == site_name)
+    if site_name != '':
+        site_instance: Site = Site.get(Site.name == site_name)
 
     def url_suits(self, url) -> bool:
         ...

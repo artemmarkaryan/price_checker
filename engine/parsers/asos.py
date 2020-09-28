@@ -1,5 +1,4 @@
-from parser.parser import ParserInterface
-from urllib.parse import urlparse
+from engine.parsers.interface import ParserInterface
 import requests
 import re
 
