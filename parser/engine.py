@@ -88,6 +88,7 @@ def contains_price(tag: Tag, price):
 
     return False
 
+
 def find_element(url: str, price: str) -> Tuple[Tag, str]:
     price = filters.filter_price(price)
     logging.info(f'Checking for {price}')

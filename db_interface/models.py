@@ -22,4 +22,9 @@ class Check(Model):
     user = ForeignKeyField(User)
     site = ForeignKeyField(Site)
     url = TextField()
-    value = IntegerField()
+    value = FloatField()
+
+
+# if __name__ == '__main__':
+#     db.connect()
+#     db.create_tables(User, Site, )
