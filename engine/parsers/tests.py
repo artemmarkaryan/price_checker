@@ -9,7 +9,7 @@ class ParserTests(unittest.TestCase):
         # update prices before test
         cases = {
             asos.AsosParser(): {
-                "https://www.asos.com/ru/puma/belye-vysokie-krossovki-puma-cali-sport/prd/20928503?clr=puma-white-puma-whit&colourwayid=60100435&SearchQuery=&cid=1931": 5390.0,
+                "https://www.asos.com/ru/puma/belye-vysokie-krossovki-puma-cali-sport/prd/20928503?clr=puma-white-puma-whit&colourwayid=60100435&SearchQuery=&cid=1931": 4590.0,
 
                 "https://www.asos.com/ru/na-kd/oranzhevoe-plate-mini-s-tsvetochnym-printom-i-kvadratnym-vyrezom-na-kd/prd/20172273?clr=oranzhevyj&colourwayid=60014515&SearchQuery=&cid=7046": 1790.0,
             },
