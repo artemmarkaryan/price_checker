@@ -10,7 +10,7 @@ class FarfatchParser(ParserInterface):
     site_name = 'farfetch'
 
     def url_suits(self, url) -> bool:
-        return re.match('farfetch', url) is not None
+        return re.match('^https://(farfetch.onelink.me|www.farfetch.com/)(.*)(item-)(\d{8})', url) is not None
 
     def get_price(self, url: str) -> float:
         response = requests.get(url, headers=config.HEADERS).text

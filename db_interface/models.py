@@ -1,5 +1,6 @@
 from peewee import *
 from db_interface.core import db
+from engine.parsers.interface import ParserInterface
 
 
 class MyModel(Model):
@@ -15,16 +16,29 @@ class Site(MyModel):
     id = AutoField(primary_key=True)
     name = CharField(max_length=128)
 
+    @property
+    def parser(self) -> ParserInterface:
+        for p in ParserInterface.__subclasses__():
+            if p.site_name == self.name:
+                return p()
+
 
 class Check(MyModel):
     id = AutoField(primary_key=True)
     user = ForeignKeyField(User)
     site = ForeignKeyField(Site)
     url = TextField()
-    value = FloatField()
+    price = FloatField()
+
+    @property
+    def price_verbose(self):
+        return f'{self.price}₽'
 
 
-class Texts(MyModel):
+class Text(MyModel):
     id = AutoField(primary_key=True)
     name = CharField(max_length=128)
     text = TextField()
+
+    def __str__(self):
+        return f'<{self.name}>: {self.text}'

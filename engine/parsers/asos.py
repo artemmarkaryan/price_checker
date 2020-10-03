@@ -7,7 +7,7 @@ class AsosParser(ParserInterface):
     site_name = 'asos'
 
     def url_suits(self, url) -> bool:
-        return re.match('(asos).+prd/(\d+)', url) is not None
+        return re.match('https://www.asos.com/.*/prd/(\d{8}).*', url) is not None
 
     def get_price(self, url: str) -> float:
         product_id = re.match('.*prd/(\d+)', url)[1]

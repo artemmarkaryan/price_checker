@@ -1,11 +1,11 @@
 import unittest
-from engine.parsers import *
+from engine.parsers import asos, farfetch
 import logging
 
 
 class ParserTests(unittest.TestCase):
 
-    def test_asos(self):
+    def test_parsers(self):
         # update prices before test
         cases = {
             asos.AsosParser(): {
