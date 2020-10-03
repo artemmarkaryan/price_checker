@@ -2,22 +2,21 @@ from peewee import *
 from db_interface.core import db
 
 
-class User(Model):
+class MyModel(Model):
     class Meta:
         database = db
+
+
+class User(MyModel):
     id = AutoField(primary_key=True)
 
 
-class Site(Model):
-    class Meta:
-        database = db
+class Site(MyModel):
     id = AutoField(primary_key=True)
     name = CharField(max_length=128)
 
 
-class Check(Model):
-    class Meta:
-        database = db
+class Check(MyModel):
     id = AutoField(primary_key=True)
     user = ForeignKeyField(User)
     site = ForeignKeyField(Site)
@@ -25,6 +24,8 @@ class Check(Model):
     value = FloatField()
 
 
-# if __name__ == '__main__':
-#     db.connect()
-#     db.create_tables(User, Site, )
+class Texts(MyModel):
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=128)
+    text = TextField()
+

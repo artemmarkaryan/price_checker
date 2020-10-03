@@ -1,4 +1,5 @@
 import telebot
+
 import config
 
-bot = telebot.AsyncTeleBot(token=config.BOT_TOKEN)
+bot = telebot.TeleBot(token=config.BOT_TOKEN)
