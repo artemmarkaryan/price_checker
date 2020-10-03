@@ -28,4 +28,3 @@ class Texts(MyModel):
     id = AutoField(primary_key=True)
     name = CharField(max_length=128)
     text = TextField()
-

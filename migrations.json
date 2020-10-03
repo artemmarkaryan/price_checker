@@ -5,6 +5,7 @@
   "models": [
     "db_interface.models.User",
     "db_interface.models.Site",
-    "db_interface.models.Check"
+    "db_interface.models.Check",
+    "db_interface.models.Texts"
   ]
 }
