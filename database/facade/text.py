@@ -1,5 +1,5 @@
-from db_interface.models import Text
-from db_interface.errors import *
+from database.models import Text
+from database.errors import *
 import logging
 
 

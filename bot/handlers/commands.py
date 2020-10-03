@@ -1,6 +1,6 @@
 from bot.bot import the_bot
-from db_interface.interfaces import *
-from db_interface.errors import *
+from database.facade import *
+from database.errors import *
 from bot.handlers import check
 from telebot.types import Message
 

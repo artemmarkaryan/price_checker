@@ -1,4 +1,4 @@
-from db_interface.models import User
+from database.models import User
 
 
 def get_or_create(user_id: int) -> User:

@@ -1,4 +1,4 @@
-from db_interface.models import *
+from database.models import *
 
 
 def add_check(user_id: int, parser: ParserInterface, url: str) -> Check:

@@ -2,7 +2,7 @@ from bot.bot import the_bot
 from telebot.types import Message
 from engine.match import match_parser
 from engine.errors import UrlNotSupported
-from db_interface import interfaces
+from database import facade
 import logging
 
 
@@ -15,7 +15,7 @@ def handle_url(m: Message):
     url = m.text
     try:
         parser = match_parser(url)
-        check = interfaces.check.add_check(m.chat.id, parser, url)
+        check = facade.check.add_check(m.chat.id, parser, url)
         the_bot.send_message(
             m.chat.id,
             f'Цена: {check.price_verbose}\nТеперь ссылка отслеживается'

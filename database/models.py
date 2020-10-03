@@ -1,5 +1,5 @@
 from peewee import *
-from db_interface.core import db
+from database.core import db
 from engine.parsers.interface import ParserInterface
 
 
