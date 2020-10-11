@@ -12,7 +12,7 @@ class FarfatchParser(ParserInterface):
     def url_suits(self, url) -> bool:
         return re.match('^https://(farfetch.onelink.me|www.farfetch.com/)(.*)(item-)(\d{8})', url) is not None
 
-    def get_price(self, url: str) -> float:
+    def _get_price(self, url: str) -> float:
         response = requests.get(url, headers=config.HEADERS).text
         soup = bs4.BeautifulSoup(response, features="lxml")
         price_element = soup.find(lambda tag: tag.attrs.get("data-tstid") == "priceInfo-original")
