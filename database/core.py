@@ -3,9 +3,9 @@ import config
 
 
 db = peewee.PostgresqlDatabase(
-    'd3vsbi489vb566',
-    user='upjndjitgbddxp',
+    database='main',
+    user='admin',
     password=config.DB_PASSWORD,
-    host='ec2-54-228-209-117.eu-west-1.compute.amazonaws.com',
+    host='5.63.155.152',
     port=5432
 )

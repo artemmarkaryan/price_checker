@@ -3,7 +3,7 @@ from engine.errors import UrlNotSupported
 import logging
 
 
-def match_parser(url: str) -> ParserInterface:
+def match_parser_by_url(url: str) -> ParserInterface:
 
     for parser in ParserInterface.__subclasses__():
         parser = parser()
@@ -14,3 +14,8 @@ def match_parser(url: str) -> ParserInterface:
     logging.info(f'{url} didnt match any parser')
     raise UrlNotSupported
 
+
+def match_parser_by_name(name: str) -> ParserInterface:
+    for parser in ParserInterface.__subclasses__():
+        if name == parser.site_name:
+            return parser()

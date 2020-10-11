@@ -1,6 +1,6 @@
 from bot.bot import the_bot
 from telebot.types import Message
-from engine.match import match_parser
+from engine.match import match_parser_by_url
 from engine.errors import UrlNotSupported
 from database import facade
 import logging
@@ -14,7 +14,7 @@ def handle_add(m: Message):
 def handle_url(m: Message):
     url = m.text
     try:
-        parser = match_parser(url)
+        parser = match_parser_by_url(url)
         check = facade.check.add_check(m.chat.id, parser, url)
         the_bot.send_message(
             m.chat.id,

@@ -141,5 +141,17 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+
 migrations/
 migrations.json
+
+pricechecker
+pricechecker.pub
+
+ssh
+ssh.pub
+
+to_server.py
+
+webhook_cert.pem
+webhook_pkey.pem
