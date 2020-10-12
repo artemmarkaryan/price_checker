@@ -19,6 +19,6 @@ class AsosParser(ParserInterface):
             data = response.json()
             price = data[0]['productPrice']['current']['value']
             return price
-        except ValueError:
+        except ValueError or KeyError:
             raise UrlNotSupported
 

@@ -12,6 +12,11 @@ def handle_add(m: Message):
 
 
 def handle_url(m: Message):
+    if len(m.text.split()) > 1:
+        the_bot.send_message(m.chat.id, 'Это не ссылка')
+        handle_add(m)
+        return
+
     url = m.text
     try:
         parser = match_parser_by_url(url)

@@ -1,4 +1,4 @@
-from bot.bot import the_bot
+from bot.bot import notification_bot
 
 
 def notify(
@@ -7,10 +7,9 @@ def notify(
         new_price: float,
         url
 ):
-    the_bot.send_message(
+    notification_bot.send_message(
         user_id,
         f"<b>Цена изменилась</b>\n"
         f"Было {old_price}₽, теперь {new_price}₽\n\n"
         f"<a href='{url}'>Ссылка на товар</a>",
-        parse_mode='html'
     )

@@ -8,8 +8,13 @@ import threading as th
 logging.getLogger().setLevel(logging.INFO)
 logging.info('starting')
 
-engine.tests.EngineTest().test_url_match()
-engine.parsers.tests.ParserTests().test_parsers()
+tests = (
+    # engine.tests.EngineTest().test_url_match,
+    # engine.parsers.tests.ParserTests().test_parsers
+)
+
+for test in tests:
+    test()
 
 bot_polling_p = th.Thread(
     target=the_bot.polling,
