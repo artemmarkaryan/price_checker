@@ -1,4 +1,5 @@
 from telebot.types import *
+from config import KB_BUTTONS
 
 
 def generate_inline(row_width=2, **variants):
@@ -11,7 +12,18 @@ def generate_inline(row_width=2, **variants):
 
 
 def generate_reply(row_width, *variants):
-    kb = ReplyKeyboardMarkup(row_width=1)
+    kb = ReplyKeyboardMarkup(
+        row_width=1, resize_keyboard=True, one_time_keyboard=True
+    )
     for v in variants:
         kb.add(v)
     return kb
+
+
+def generate_cancel():
+    kb = ReplyKeyboardMarkup(
+        row_width=1, resize_keyboard=True, one_time_keyboard=True
+    )
+    kb.add(KB_BUTTONS['CANCEL'])
+    return kb
+

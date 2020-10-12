@@ -14,6 +14,10 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
+KB_BUTTONS = {
+    'CANCEL': 'Отмена'
+}
+
 # WEBHOOK_HOST = '5.63.155.152'
 # WEBHOOK_PORT = 80
 # WEBHOOK_LISTEN = '0.0.0.0'  # На некоторых серверах придется указывать такой же IP, что и выше

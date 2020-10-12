@@ -2,16 +2,16 @@ from database.models import *
 import peewee
 
 
-def add_check(user_id: int, parser, url: str) -> Check:
+def add_check(user_id: int, parser, url: str) -> (Check, bool):
     user: User = User.get(User.id == user_id)
     site: Site = Site.get(Site.name == parser.site_name)
-    check = Check.create(
+    check, created = Check.get_or_create(
         user=user,
         site=site,
         url=url,
         price=parser.get_price(url)
     )
-    return check
+    return check, created
 
 
 def get_checks() -> peewee.Query:

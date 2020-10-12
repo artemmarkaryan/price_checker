@@ -10,4 +10,3 @@ notification_bot = telebot.TeleBot(
     token=config.BOT_TOKEN,
     parse_mode='html'
 )
-

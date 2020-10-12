@@ -1,12 +1,17 @@
 from bot.bot import the_bot
-from bot.handlers import *
 import logging
 import engine
 import threading as th
-
+from bot import states
 
 logging.getLogger().setLevel(logging.INFO)
 logging.info('starting')
+
+
+@the_bot.message_handler(func=lambda m: True)
+def initial_handler(m):
+    states.initial.InitialState().handler(m)
+
 
 tests = (
     # engine.tests.EngineTest().test_url_match,
@@ -28,7 +33,7 @@ price_tracking_p = th.Timer(
     function=engine.tracker.execute,
 )
 
-price_tracking_p.start()
+# price_tracking_p.start()
 bot_polling_p.start()
 
 while True:
