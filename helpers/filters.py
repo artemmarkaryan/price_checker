@@ -1,3 +1,6 @@
+import re
+
+
 def _make_digital(string) -> str:
     return ''.join([c for c in string if c.isdigit()])
 
@@ -14,3 +17,9 @@ def filter_price(price: str, delimiter: str = None) -> float:
         new_price = float(roubles) + float(kopeck)/100
 
     return new_price
+
+
+def get_links_from_text(text):
+    links = re.findall('((?:http|www)[^\s]+)', text)
+    if len(links) == 1:
+        return links[0]

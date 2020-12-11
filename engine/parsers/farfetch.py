@@ -5,6 +5,7 @@ import config
 import requests
 import re
 import bs4
+import logging
 
 
 class FarfatchParser(ParserInterface):
@@ -15,9 +16,13 @@ class FarfatchParser(ParserInterface):
 
     def _get_price(self, url: str) -> float:
         try:
-            response = requests.get(url, headers=config.HEADERS).text
-            soup = bs4.BeautifulSoup(response, features="lxml")
-            price_element = soup.find(lambda tag: tag.attrs.get("data-tstid") == "priceInfo-original")
+            response = requests.get(url, headers=config.HEADERS)
+            response.encoding = 'utf-8'
+            html = response.text
+            soup = bs4.BeautifulSoup(html, features="lxml")
+            price_element = soup.find(lambda tag: tag.attrs.get("data-tstid") == "priceInfo-onsale")
+            if not price_element:
+                price_element = soup.find(lambda tag: tag.attrs.get("data-tstid") == "priceInfo-original")
             price: float = filters.filter_price(price_element.string)
             return price
         except AttributeError:

@@ -8,8 +8,15 @@ class MyModel(Model):
         database = db
 
 
+class Platform(MyModel):
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=128)
+
+
 class User(MyModel):
     id = AutoField(primary_key=True)
+    user_id = IntegerField(null=True)
+    platform = ForeignKeyField(Platform, null=True)
 
 
 class Site(MyModel):
@@ -27,12 +34,3 @@ class Check(MyModel):
     @property
     def price_verbose(self):
         return f'{self.price}₽'
-
-
-class Text(MyModel):
-    id = AutoField(primary_key=True)
-    name = CharField(max_length=128)
-    text = TextField()
-
-    def __str__(self):
-        return f'<{self.name}>: {self.text}'

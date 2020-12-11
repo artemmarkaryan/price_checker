@@ -3,9 +3,9 @@
   "directory": "migrations",
   "history": "migratehistory",
   "models": [
+    "database.models.Platform",
     "database.models.User",
     "database.models.Site",
-    "database.models.Check",
-    "database.models.Text"
+    "database.models.Check"
   ]
 }

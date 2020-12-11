@@ -2,6 +2,8 @@ from engine.parsers.interface import ParserInterface
 from engine.errors import UrlNotSupported
 import requests
 import re
+import pprint
+pp = pprint.PrettyPrinter().pprint
 
 
 class AsosParser(ParserInterface):
@@ -17,8 +19,15 @@ class AsosParser(ParserInterface):
         )
         try:
             data = response.json()
-            price = data[0]['productPrice']['current']['value']
+            price = data['price']['current']['value']
             return price
-        except ValueError or KeyError:
+        except ValueError and KeyError:
             raise UrlNotSupported
 
+
+if __name__ == '__main__':
+    print(
+        AsosParser()._get_price(
+            'https://www.asos.com/ru/prd/12759000'
+        )
+    )

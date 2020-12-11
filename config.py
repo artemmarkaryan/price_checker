@@ -4,8 +4,10 @@ import os
 dotenv.load_dotenv()
 
 HEADERS = {
-    'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
-    'accept': '*/*'
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:81.0) Gecko/20100101 Firefox/81.0',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'accept-encoding': 'gzip, deflate, br',
+
 }
 
 PRICE_SIMILARITY_RATIO = 0.7
@@ -14,9 +16,11 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
-KB_BUTTONS = {
-    'CANCEL': 'Отмена'
-}
+
+class KbButtons:
+    CANCEL = 'Отмена'
+    ADD = '➕ Новая ссылка'
+
 
 # WEBHOOK_HOST = '5.63.155.152'
 # WEBHOOK_PORT = 80

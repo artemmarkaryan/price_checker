@@ -1,4 +1,4 @@
-from bot.bot import notification_bot
+from telegram.bot import notification_bot
 
 
 def item_removed(user_id: int, url: str):
